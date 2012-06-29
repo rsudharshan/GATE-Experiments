@@ -1,0 +1,632 @@
+<paragraph><Token>IR-Related</Token> <Token>Tasks</Token><Token>:</Token> <Token>Segmentation</Token><Token>,</Token>
+<Token>Summarization</Token><Token>,</Token> <Token>and</Token> <Token>Information</Token>
+<Token>Extraction</Token>
+<Token>Lecture</Token> <Token>16</Token>
+<Token>CS</Token> <Token>410</Token><Token>/</Token><Token>510</Token>
+<Token>Information</Token> <Token>Retrieval</Token> <Token>on</Token> <Token>the</Token> <Token>Internet</Token></paragraph>
+
+<paragraph><Token>Natural</Token> <Token>Language</Token> <Token>Processing</Token>
+<Token>“</Token><Token>Natural</Token> <Token>language</Token> <Token>processing</Token> <Token>(</Token><Token>NLP</Token><Token>)</Token> <Token>.</Token><Token>.</Token><Token>.</Token> <Token>studies</Token> <Token>the</Token>
+<Token>problems</Token> <Token>of</Token> <Token>automated</Token> <Token>generation</Token> <Token>and</Token> <Token>understanding</Token> <Token>of</Token>
+<Token>natural</Token> <Token>human</Token> <Token>languages</Token><Token>.</Token> <Token>.</Token><Token>.</Token><Token>.</Token> <Token>natural</Token> <Token>language</Token>
+<Token>understanding</Token> <Token>systems</Token> <Token>convert</Token> <Token>samples</Token> <Token>of</Token> <Token>human</Token>
+<Token>language</Token> <Token>into</Token> <Token>more</Token> <Token>formal</Token> <Token>representations</Token> <Token>that</Token> <Token>are</Token>
+<Token>easier</Token> <Token>for</Token> <Token>computer</Token> <Token>programs</Token> <Token>to</Token> <Token>manipulate</Token><Token>.</Token><Token>”</Token>
+<Token>–</Token> <Token>http</Token><Token>:</Token><Token>/</Token><Token>/</Token><Token>en</Token><Token>.</Token><Token>wikipedia</Token><Token>.</Token><Token>org</Token><Token>/</Token><Token>wiki</Token><Token>/</Token><Token>Natural</Token><Token>_</Token><Token>Language</Token><Token>_</Token><Token>Processing</Token>
+<Token>Note</Token><Token>:</Token> <Token>much</Token> <Token>of</Token> <Token>the</Token> <Token>material</Token> <Token>for</Token> <Token>this</Token> <Token>lecture</Token> <Token>is</Token> <Token>taken</Token> <Token>from</Token><Token>:</Token>
+<Token>Moens</Token><Token>,</Token> <Token>Marie-</Token><Token>Francine</Token><Token>.</Token> <Token>Automatic</Token> <Token>Indexing</Token> <Token>and</Token> <Token>Abstracting</Token> <Token>of</Token> <Token>Document</Token>
+<Token>Texts</Token><Token>.</Token> <Token>Kluwer</Token> <Token>Academic</Token> <Token>Publishers</Token><Token>,</Token> <Token>Boston</Token><Token>,</Token> <Token>2000</Token><Token>.</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>2</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>1</Token></paragraph>
+
+ <paragraph><Token>Units</Token> <Token>of</Token>
+<Token>interest</Token>
+<Token>Letters</Token></paragraph>
+
+<paragraph><Token>Phonemes</Token></paragraph>
+
+<paragraph><Token>Morphemes</Token>
+<Token>Words</Token>
+<Token>Phrases</Token>
+<Token>Sentences</Token>
+<Token>Discourse</Token>
+<Token>Context</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>3</Token></paragraph>
+
+<paragraph><Token>Natural</Token> <Token>Language</Token> <Token>Processing</Token>
+<Token>•</Token> <Token>For</Token> <Token>IR-related</Token> <Token>tasks</Token><Token>,</Token> <Token>mostly</Token> <Token>concerned</Token> <Token>with</Token><Token>:</Token>
+<Token>–</Token> <Token>Morphological</Token> <Token>analysis</Token><Token>:</Token> <Token>determining</Token> <Token>meaningful</Token>
+<Token>components</Token> <Token>of</Token> <Token>words</Token>
+<Token>•</Token> <Token>Stems</Token><Token>,</Token> <Token>affixes</Token><Token>,</Token> <Token>inflection</Token><Token>,</Token> <Token>parts</Token> <Token>of</Token> <Token>compound</Token> <Token>words</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Syntax</Token><Token>:</Token> <Token>structural</Token> <Token>relationships</Token> <Token>between</Token> <Token>words</Token>
+<Token>•</Token> <Token>Parts</Token> <Token>of</Token> <Token>speech</Token><Token>;</Token> <Token>phrases</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Semantics</Token><Token>:</Token> <Token>meaning</Token> <Token>of</Token> <Token>the</Token> <Token>text</Token>
+<Token>–</Token> <Token>Discourse</Token> <Token>issues</Token><Token>:</Token> <Token>resolving</Token> <Token>relationships</Token> <Token>across</Token>
+<Token>sentences</Token>
+<Token>•</Token> <Token>Anaphoric</Token> <Token>references</Token> <Token>(</Token><Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>use</Token> <Token>of</Token> <Token>pronouns</Token><Token>)</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>4</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>2</Token></paragraph>
+
+ <paragraph><Token>Some</Token> <Token>useful</Token> <Token>steps</Token> <Token>(</Token><Token>1</Token><Token>)</Token>
+<Token>•</Token> <Token>Tokenization</Token> <Token>(</Token><Token>identify</Token> <Token>words</Token><Token>,</Token> <Token>sentences</Token><Token>)</Token>
+<Token>•</Token> <Token>Part</Token> <Token>of</Token> <Token>speech</Token> <Token>tagging</Token>
+<Token>–</Token> <Token>Dictionary</Token> <Token>lookup</Token>
+<Token>–</Token> <Token>Probabilistic</Token><Token>,</Token> <Token>based</Token> <Token>on</Token> <Token>specific</Token> <Token>word</Token> <Token>&amp;</Token> <Token>its</Token> <Token>context</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Finding</Token> <Token>phrases</Token>
+<Token>–</Token> <Token>Syntactic</Token> <Token>templates</Token> <Token>(</Token><Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>adjective</Token> <Token>followed</Token> <Token>by</Token> <Token>noun</Token><Token>)</Token>
+<Token>–</Token> <Token>Context-free</Token> <Token>grammar</Token> <Token>with</Token> <Token>rules</Token> <Token>of</Token> <Token>allowable</Token> <Token>syntax</Token>
+<Token>•</Token> <Token>But</Token> <Token>multiple</Token> <Token>parses</Token> <Token>often</Token> <Token>possible</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>May</Token> <Token>normalize</Token> <Token>to</Token> <Token>recognize</Token> <Token>equivalent</Token> <Token>phrases</Token>
+<Token>–</Token> <Token>May</Token> <Token>be</Token> <Token>interested</Token> <Token>only</Token> <Token>in</Token> <Token>noun</Token> <Token>phrases</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>5</Token></paragraph>
+
+<paragraph><Token>Some</Token> <Token>useful</Token> <Token>steps</Token> <Token>(</Token><Token>2</Token><Token>)</Token>
+<Token>•</Token> <Token>Parsing</Token>
+<Token>–</Token> <Token>Full</Token> <Token>parsing</Token>
+<Token>•</Token> <Token>Attempt</Token> <Token>to</Token> <Token>get</Token> <Token>full</Token> <Token>global</Token> <Token>parse</Token> <Token>may</Token> <Token>degrade</Token> <Token>local</Token> <Token>choices</Token>
+<Token>•</Token> <Token>May</Token> <Token>produce</Token> <Token>ambiguous</Token> <Token>results</Token> <Token>–</Token> <Token>multiple</Token> <Token>possible</Token> <Token>parses</Token>
+<Token>•</Token> <Token>Works</Token> <Token>best</Token> <Token>in</Token> <Token>well-defined</Token><Token>,</Token> <Token>constrained</Token> <Token>space</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Partial</Token> <Token>parsing</Token>
+<Token>•</Token> <Token>Partition</Token> <Token>into</Token> <Token>fragments</Token><Token>,</Token> <Token>such</Token> <Token>as</Token> <Token>phrases</Token>
+<Token>•</Token> <Token>Often</Token> <Token>tailored</Token> <Token>to</Token> <Token>domain</Token> <Token>or</Token> <Token>application</Token> <Token>needs</Token>
+<Token>–</Token> <Token>Recognize</Token> <Token>only</Token> <Token>segments</Token> <Token>defined</Token> <Token>in</Token> <Token>a</Token> <Token>grammar</Token><Token>;</Token> <Token>ignore</Token> <Token>the</Token> <Token>rest</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>May</Token> <Token>map</Token> <Token>text</Token> <Token>directly</Token> <Token>into</Token> <Token>semantic</Token> <Token>representation</Token> <Token>structures</Token>
+<Token>without</Token> <Token>trying</Token> <Token>to</Token> <Token>identify</Token> <Token>syntactic</Token> <Token>elements</Token> <Token>(</Token><Token>semantic</Token> <Token>parser</Token><Token>)</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>6</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>3</Token></paragraph>
+
+ <paragraph><Token>Some</Token> <Token>useful</Token> <Token>steps</Token> <Token>(</Token><Token>3</Token><Token>)</Token>
+<Token>•</Token> <Token>Named</Token> <Token>entity</Token> <Token>recognition</Token>
+<Token>–</Token> <Token>People</Token><Token>,</Token> <Token>places</Token><Token>,</Token> <Token>companies</Token><Token>,</Token> <Token>etc</Token><Token>.</Token>
+<Token>–</Token> <Token>Tools</Token><Token>:</Token>
+<Token>•</Token> <Token>Lexicons</Token>
+<Token>•</Token> <Token>Gazetteers</Token> <Token>(</Token><Token>dictionaries</Token> <Token>of</Token> <Token>geographical</Token> <Token>names</Token><Token>)</Token>
+<Token>•</Token> <Token>Rules</Token> <Token>(</Token><Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>capitalization</Token><Token>)</Token> <Token>and</Token> <Token>context</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>7</Token></paragraph>
+
+<paragraph><Token>Text</Token> <Token>structure</Token>
+<Token>•</Token> <Token>Organization</Token> <Token>of</Token> <Token>discourse</Token> <Token>can</Token> <Token>be</Token> <Token>useful</Token>
+<Token>for</Token> <Token>analysis</Token> <Token>and</Token> <Token>manipulation</Token> <Token>of</Token> <Token>text</Token>
+<Token>–</Token> <Token>Schematic</Token> <Token>structure</Token>
+<Token>–</Token> <Token>Rhetorical</Token> <Token>structure</Token>
+<Token>–</Token> <Token>Thematic</Token> <Token>structure</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>8</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>4</Token></paragraph>
+
+ <paragraph><Token>Schematic</Token> <Token>structure</Token>
+<Token>•</Token> <Token>Ordered</Token> <Token>text</Token> <Token>segments</Token>
+<Token>–</Token> <Token>Possibly</Token> <Token>signaled</Token> <Token>by</Token> <Token>cue</Token> <Token>phrases</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Characteristic</Token> <Token>structure</Token> <Token>for</Token> <Token>classes</Token> <Token>of</Token> <Token>text</Token>
+<Token>–</Token> <Token>Expository</Token> <Token>text</Token><Token>,</Token> <Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>scientific</Token> <Token>articles</Token>
+<Token>•</Token> <Token>Purpose</Token><Token>,</Token> <Token>methods</Token><Token>,</Token> <Token>results</Token><Token>,</Token> <Token>discussion</Token><Token>,</Token> <Token>conclusion</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Narrative</Token> <Token>text</Token><Token>,</Token> <Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>news</Token> <Token>articles</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>May</Token> <Token>be</Token> <Token>signaled</Token> <Token>by</Token> <Token>document</Token> <Token>structures</Token>
+<Token>–</Token> <Token>Titles</Token><Token>,</Token> <Token>subtitles</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Can</Token> <Token>tailor</Token> <Token>analysis</Token> <Token>to</Token> <Token>document</Token> <Token>type</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>9</Token></paragraph>
+
+<paragraph><Token>Rhetorical</Token> <Token>structure</Token>
+<Token>•</Token> <Token>Rhetorical</Token> <Token>relations</Token> <Token>between</Token> <Token>sentences</Token> <Token>and</Token>
+<Token>clauses</Token>
+<Token>•</Token> <Token>Often</Token> <Token>indicated</Token> <Token>by</Token> <Token>lexical</Token> <Token>cues</Token><Token>,</Token> <Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token>
+<Token>–</Token>
+<Token>–</Token>
+<Token>–</Token>
+<Token>–</Token>
+<Token>–</Token></paragraph>
+
+<paragraph><Token>Succession</Token> <Token>“</Token><Token>I</Token> <Token>took</Token> <Token>the</Token> <Token>test</Token> <Token>then</Token> <Token>I</Token> <Token>went</Token> <Token>home</Token><Token>.</Token><Token>”</Token>
+<Token>Conditionality</Token> <Token>“</Token><Token>I</Token><Token>’</Token><Token>ll</Token> <Token>cook</Token> <Token>if</Token> <Token>you</Token><Token>’</Token><Token>ll</Token> <Token>wash</Token> <Token>dishes</Token><Token>.</Token><Token>”</Token>
+<Token>Motivation</Token> <Token>“</Token><Token>I</Token> <Token>did</Token> <Token>it</Token> <Token>because</Token> <Token>she</Token> <Token>asked</Token> <Token>me</Token> <Token>to</Token><Token>.</Token><Token>”</Token>
+<Token>Circumstance</Token> <Token>“</Token><Token>I</Token> <Token>bought</Token> <Token>it</Token> <Token>when</Token> <Token>I</Token> <Token>was</Token> <Token>in</Token> <Token>Iowa</Token><Token>.</Token><Token>”</Token>
+<Token>Contrast</Token> <Token>“</Token><Token>She</Token> <Token>is</Token> <Token>tall</Token> <Token>but</Token> <Token>her</Token> <Token>sister</Token> <Token>is</Token> <Token>short</Token><Token>.</Token><Token>”</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Can</Token> <Token>help</Token> <Token>identify</Token> <Token>important</Token> <Token>sentences</Token><Token>,</Token> <Token>clauses</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>10</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>5</Token></paragraph>
+
+ <paragraph><Token>Thematic</Token> <Token>structure</Token>
+<Token>•</Token> <Token>Topical</Token> <Token>organization</Token>
+<Token>–</Token> <Token>Often</Token> <Token>hierarchical</Token> <Token>with</Token> <Token>main</Token> <Token>topic</Token> <Token>and</Token> <Token>subtopics</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Can</Token> <Token>analyze</Token> <Token>at</Token> <Token>document</Token> <Token>and</Token> <Token>sentence</Token> <Token>level</Token>
+<Token>•</Token> <Token>May</Token> <Token>see</Token><Token>:</Token>
+<Token>–</Token>
+<Token>–</Token>
+<Token>–</Token>
+<Token>–</Token></paragraph>
+
+<paragraph><Token>Sequential</Token> <Token>progression</Token>
+<Token>Progressive</Token> <Token>detail</Token> <Token>(</Token><Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>news</Token> <Token>stories</Token><Token>)</Token>
+<Token>Repetition</Token>
+<Token>Suspension</Token> <Token>and</Token> <Token>resumption</Token> <Token>of</Token> <Token>a</Token> <Token>topic</Token> <Token>(</Token><Token>semantic</Token>
+<Token>return</Token><Token>)</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>11</Token></paragraph>
+
+<paragraph><Token>Thematic</Token> <Token>structure</Token>
+<Token>•</Token> <Token>Schematic</Token> <Token>structure</Token> <Token>orders</Token> <Token>thematic</Token> <Token>content</Token>
+<Token>•</Token> <Token>May</Token> <Token>coincide</Token> <Token>with</Token> <Token>presentation</Token> <Token>structure</Token>
+<Token>(</Token><Token>chapters</Token><Token>,</Token> <Token>paragraphs</Token><Token>)</Token>
+<Token>•</Token> <Token>Central</Token> <Token>theme</Token> <Token>often</Token> <Token>indicated</Token> <Token>in</Token><Token>:</Token>
+<Token>–</Token> <Token>Sentence</Token> <Token>at</Token> <Token>beginning</Token> <Token>and</Token> <Token>end</Token> <Token>of</Token> <Token>document</Token>
+<Token>–</Token> <Token>First</Token> <Token>or</Token> <Token>last</Token> <Token>sentence</Token> <Token>of</Token> <Token>paragraph</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Words</Token> <Token>in</Token> <Token>text</Token> <Token>describe</Token> <Token>topics</Token>
+<Token>–</Token> <Token>Word</Token> <Token>location</Token> <Token>and</Token> <Token>frequency</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Linguistic</Token> <Token>cues</Token> <Token>can</Token><Token>:</Token>
+<Token>–</Token> <Token>Indicate</Token> <Token>topic</Token> <Token>shifts</Token>
+<Token>–</Token> <Token>Indicate</Token> <Token>thematic</Token> <Token>roles</Token> <Token>of</Token> <Token>phrases</Token><Token>,</Token> <Token>clauses</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>12</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>6</Token></paragraph>
+
+ <paragraph><Token>Text</Token> <Token>segmentation</Token>
+<Token>•</Token> <Token>Dividing</Token> <Token>previously</Token> <Token>undifferentiated</Token>
+<Token>streams</Token> <Token>of</Token> <Token>text</Token> <Token>into</Token> <Token>components</Token>
+<Token>–</Token> <Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>streams</Token> <Token>of</Token> <Token>news</Token> <Token>stories</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Dividing</Token> <Token>documents</Token> <Token>into</Token> <Token>sections</Token>
+<Token>–</Token> <Token>Corresponding</Token> <Token>to</Token> <Token>subtopics</Token>
+<Token>–</Token> <Token>Use</Token> <Token>for</Token> <Token>retrieval</Token> <Token>or</Token> <Token>summarization</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Can</Token> <Token>be</Token> <Token>linear</Token> <Token>or</Token> <Token>hierarchical</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>13</Token></paragraph>
+
+<paragraph><Token>Text</Token> <Token>segmentation</Token>
+<Token>Document</Token></paragraph>
+
+<paragraph><Token>Document</Token></paragraph>
+
+<paragraph><Token>Topic</Token> <Token>1</Token>
+<Token>Subtopic</Token> <Token>A</Token>
+<Token>Subtopic</Token> <Token>B</Token>
+<Token>Topic</Token> <Token>2</Token>
+<Token>Subtopic</Token> <Token>C</Token>
+<Token>Subtopic</Token> <Token>D</Token>
+<Token>Topic</Token> <Token>3</Token>
+<Token>Subtopic</Token> <Token>E</Token>
+<Token>Subtopic</Token> <Token>F</Token></paragraph>
+
+<paragraph><Token>Topic</Token> <Token>A</Token>
+<Token>Topic</Token> <Token>B</Token>
+<Token>Topic</Token> <Token>C</Token>
+<Token>Topic</Token> <Token>D</Token>
+<Token>Topic</Token> <Token>E</Token>
+<Token>Topic</Token> <Token>F</Token></paragraph>
+
+<paragraph><Token>Hierarchical</Token> <Token>segmentation</Token></paragraph>
+
+<paragraph><Token>Linear</Token> <Token>segmentation</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>14</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>7</Token></paragraph>
+
+ <paragraph><Token>Text</Token> <Token>Segmentation</Token>
+<Token>•</Token> <Token>Define</Token> <Token>windows</Token> <Token>of</Token> <Token>text</Token>
+<Token>–</Token> <Token>Could</Token> <Token>be</Token> <Token>a</Token> <Token>sentence</Token><Token>,</Token> <Token>n</Token> <Token>sentences</Token><Token>,</Token> <Token>m</Token> <Token>words</Token><Token>,</Token> <Token>other</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Formulate</Token> <Token>a</Token> <Token>“</Token><Token>description</Token><Token>”</Token> <Token>for</Token> <Token>each</Token> <Token>window</Token>
+<Token>–</Token> <Token>Words</Token><Token>,</Token> <Token>phrases</Token><Token>,</Token> <Token>possibly</Token> <Token>expanded</Token>
+<Token>•</Token> <Token>e</Token><Token>.</Token><Token>g</Token><Token>.</Token> <Token>by</Token> <Token>using</Token> <Token>query</Token> <Token>expansion</Token> <Token>techniques</Token> <Token>to</Token> <Token>find</Token> <Token>related</Token>
+<Token>words</Token> <Token>and</Token> <Token>phrases</Token> <Token>to</Token> <Token>expand</Token> <Token>text</Token> <Token>in</Token> <Token>original</Token> <Token>window</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Calculate</Token> <Token>a</Token> <Token>similarity</Token> <Token>between</Token> <Token>pairs</Token> <Token>of</Token> <Token>windows</Token>
+<Token>–</Token> <Token>All</Token> <Token>pairs</Token> <Token>or</Token> <Token>pairs</Token> <Token>within</Token> <Token>a</Token> <Token>fixed</Token> <Token>distance</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Assign</Token> <Token>boundaries</Token>
+<Token>–</Token> <Token>Look</Token> <Token>for</Token> <Token>large</Token> <Token>changes</Token> <Token>in</Token> <Token>similarity</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Note</Token><Token>:</Token> <Token>similar</Token> <Token>to</Token> <Token>a</Token> <Token>clustering</Token> <Token>task</Token> <Token>except</Token> <Token>clusters</Token>
+<Token>consist</Token> <Token>of</Token> <Token>adjacent</Token> <Token>text</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>15</Token></paragraph>
+
+<paragraph><Token>TextTiling</Token><Token>:</Token> <Token>Segmentation</Token> <Token>example</Token>
+<Token>•</Token> <Token>Tokenizes</Token> <Token>text</Token>
+<Token>–</Token> <Token>Uses</Token> <Token>token-sequences</Token> <Token>of</Token> <Token>w</Token> <Token>tokens</Token> <Token>not</Token> <Token>sentences</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Calculates</Token> <Token>“</Token><Token>lexical</Token> <Token>score</Token><Token>”</Token> <Token>for</Token> <Token>gaps</Token> <Token>between</Token>
+<Token>adjacent</Token> <Token>units</Token><Token>:</Token> <Token>3</Token> <Token>methods</Token>
+<Token>–</Token> <Token>Score</Token> <Token>based</Token> <Token>on</Token> <Token>term</Token> <Token>frequency</Token> <Token>comparisons</Token>
+<Token>between</Token> <Token>adjacent</Token> <Token>blocks</Token> <Token>(</Token><Token>windows</Token><Token>)</Token>
+<Token>•</Token> <Token>Groups</Token> <Token>k</Token> <Token>token-sequences</Token> <Token>(</Token><Token>of</Token> <Token>w</Token> <Token>tokens</Token> <Token>each</Token><Token>)</Token> <Token>into</Token> <Token>blocks</Token>
+<Token>•</Token> <Token>Slides</Token> <Token>windows</Token> <Token>by</Token> <Token>one</Token> <Token>token-sequence</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Score</Token> <Token>based</Token> <Token>on</Token> <Token>number</Token> <Token>of</Token> <Token>new</Token> <Token>terms</Token> <Token>in</Token> <Token>adjacent</Token>
+<Token>token-sequences</Token> <Token>(</Token><Token>vocabulary</Token> <Token>introduction</Token><Token>)</Token>
+<Token>–</Token> <Token>Score</Token> <Token>based</Token> <Token>on</Token> <Token>number</Token> <Token>of</Token> <Token>active</Token> <Token>lexical</Token> <Token>chains</Token>
+<Token>•</Token> <Token>Repetitions</Token> <Token>of</Token> <Token>morphological</Token> <Token>variants</Token> <Token>of</Token> <Token>same</Token> <Token>term</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>16</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>8</Token></paragraph>
+
+ <paragraph><Token>TextTiling</Token><Token>:</Token> <Token>Segmentation</Token> <Token>example</Token>
+<Token>•</Token> <Token>Assigns</Token> <Token>boundaries</Token> <Token>at</Token> <Token>“</Token><Token>valleys</Token><Token>”</Token> <Token>of</Token> <Token>lexical</Token> <Token>score</Token>
+<Token>–</Token> <Token>Depth</Token> <Token>score</Token> <Token>measures</Token> <Token>distance</Token> <Token>between</Token> <Token>peak</Token> <Token>and</Token>
+<Token>valley</Token> <Token>(</Token><Token>with</Token> <Token>some</Token> <Token>smoothing</Token><Token>)</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Results</Token> <Token>with</Token> <Token>block</Token> <Token>algorithm</Token> <Token>reasonably</Token> <Token>good</Token>
+<Token>•</Token> <Token>Applied</Token> <Token>technique</Token> <Token>to</Token> <Token>IR</Token> <Token>by</Token> <Token>segmenting</Token>
+<Token>documents</Token><Token>,</Token> <Token>querying</Token> <Token>against</Token> <Token>segments</Token>
+<Token>–</Token> <Token>Used</Token> <Token>a</Token> <Token>TREC</Token> <Token>collection</Token>
+<Token>–</Token> <Token>Found</Token> <Token>summing</Token> <Token>scores</Token> <Token>of</Token> <Token>segments</Token> <Token>better</Token> <Token>than</Token> <Token>using</Token>
+<Token>whole-document</Token> <Token>scores</Token> <Token>for</Token> <Token>ranking</Token> <Token>documents</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>17</Token></paragraph>
+
+<paragraph><Token>TileBars</Token><Token>:</Token> <Token>Using</Token> <Token>segmentation</Token>
+<Token>•</Token> <Token>Displays</Token> <Token>information</Token> <Token>about</Token> <Token>frequency</Token> <Token>of</Token> <Token>query</Token> <Token>terms</Token> <Token>in</Token>
+<Token>document</Token> <Token>segments</Token>
+<Token>–</Token> <Token>Also</Token> <Token>document</Token> <Token>length</Token> <Token>(</Token><Token>#</Token> <Token>segments</Token><Token>)</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Input</Token> <Token>is</Token> <Token>faceted</Token> <Token>query</Token>
+<Token>–</Token> <Token>Implicit</Token> <Token>OR</Token> <Token>among</Token> <Token>terms</Token> <Token>for</Token> <Token>a</Token> <Token>given</Token> <Token>facet</Token>
+<Token>–</Token> <Token>Implicit</Token> <Token>AND</Token> <Token>between</Token> <Token>facets</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Rows</Token> <Token>of</Token> <Token>boxes</Token> <Token>represent</Token> <Token>segments</Token>
+<Token>–</Token> <Token>One</Token> <Token>box</Token> <Token>per</Token> <Token>segment</Token>
+<Token>–</Token> <Token>One</Token> <Token>row</Token> <Token>per</Token> <Token>query</Token> <Token>facet</Token> <Token>(</Token><Token>set</Token> <Token>of</Token> <Token>terms</Token><Token>)</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Gray</Token> <Token>scale</Token> <Token>represents</Token> <Token>term</Token> <Token>frequency</Token>
+<Token>–</Token> <Token>Darker</Token> <Token>boxes</Token></paragraph>
+
+<paragraph><Token>more</Token> <Token>term</Token> <Token>occurrences</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>User</Token> <Token>scans</Token> <Token>patterns</Token> <Token>and</Token> <Token>selects</Token> <Token>documents</Token> <Token>to</Token> <Token>view</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>18</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>9</Token></paragraph>
+
+ <paragraph><Token>TileBars</Token> <Token>example</Token> <Token>Screenshot</Token> <Token>(</Token><Token>cropped</Token><Token>)</Token> <Token>from</Token><Token>:</Token>
+<Token>http</Token><Token>:</Token><Token>/</Token><Token>/</Token><Token>www</Token><Token>.</Token><Token>ischool</Token><Token>.</Token><Token>berkeley</Token><Token>.</Token><Token>edu</Token><Token>/</Token><Token>~</Token><Token>hearst</Token><Token>/</Token><Token>images</Token><Token>/</Token><Token>tb-example</Token><Token>.</Token><Token>html</Token></paragraph>
+
+<paragraph><Token>Facets</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>19</Token></paragraph>
+
+<paragraph><Token>Automatic</Token> <Token>summarization</Token>
+<Token>•</Token> <Token>Two</Token> <Token>main</Token> <Token>paradigms</Token>
+<Token>–</Token> <Token>Extracts</Token>
+<Token>•</Token> <Token>Keywords</Token>
+<Token>•</Token> <Token>Sentences</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Abstracts</Token>
+<Token>•</Token> <Token>Coherent</Token> <Token>generated</Token> <Token>representation</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Two</Token> <Token>main</Token> <Token>approaches</Token>
+<Token>–</Token> <Token>Statistical</Token> <Token>analysis</Token> <Token>(</Token><Token>word</Token> <Token>frequency</Token><Token>)</Token>
+<Token>•</Token> <Token>Shallow</Token><Token>;</Token> <Token>little</Token> <Token>domain</Token> <Token>or</Token> <Token>linguistic</Token> <Token>knowledge</Token> <Token>needed</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Knowledge-based</Token>
+<Token>•</Token> <Token>Uses</Token> <Token>natural</Token> <Token>language</Token> <Token>processing</Token> <Token>techniques</Token>
+<Token>•</Token> <Token>May</Token> <Token>use</Token> <Token>domain</Token> <Token>knowledge</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>20</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>10</Token></paragraph>
+
+ <paragraph><Token>Automatic</Token> <Token>summarization</Token>
+<Token>•</Token> <Token>Important</Token> <Token>tradeoffs</Token><Token>:</Token>
+<Token>–</Token> <Token>Brevity</Token> <Token>versus</Token> <Token>readability</Token>
+<Token>–</Token> <Token>Condensation</Token> <Token>versus</Token> <Token>possible</Token> <Token>loss</Token> <Token>of</Token>
+<Token>meaning</Token><Token>/</Token><Token>accuracy</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Can</Token> <Token>apply</Token> <Token>to</Token> <Token>single</Token> <Token>document</Token> <Token>or</Token> <Token>group</Token> <Token>of</Token>
+<Token>documents</Token>
+<Token>•</Token> <Token>Summarization</Token> <Token>of</Token> <Token>multiple</Token> <Token>documents</Token> <Token>may</Token>
+<Token>involve</Token> <Token>finding</Token> <Token>repetition</Token><Token>,</Token> <Token>possibly</Token>
+<Token>agreement</Token> <Token>and</Token> <Token>disagreement</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>21</Token></paragraph>
+
+<paragraph><Token>Automatic</Token> <Token>summarization</Token>
+<Token>•</Token> <Token>Steps</Token> <Token>in</Token> <Token>automatic</Token> <Token>summarization</Token>
+<Token>–</Token> <Token>Text</Token> <Token>analysis</Token>
+<Token>•</Token> <Token>Word</Token> <Token>frequency</Token> <Token>analysis</Token>
+<Token>•</Token> <Token>Parsing</Token><Token>;</Token> <Token>structured</Token> <Token>knowledge</Token> <Token>representation</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Transformation</Token> <Token>(</Token><Token>condensation</Token><Token>)</Token>
+<Token>•</Token> <Token>Selection</Token>
+<Token>•</Token> <Token>Generalization</Token> <Token>of</Token> <Token>content</Token></paragraph>
+
+<paragraph><Token>girls</Token> <Token>with</Token> <Token>dolls</Token></paragraph>
+
+<paragraph><Token>children</Token> <Token>with</Token> <Token>toys</Token></paragraph>
+
+<paragraph><Token>boys</Token> <Token>with</Token> <Token>trains</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>May</Token> <Token>use</Token> <Token>thesaurus</Token><Token>,</Token> <Token>ontology</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Synthesis</Token> <Token>(</Token><Token>generation</Token> <Token>of</Token> <Token>summary</Token> <Token>text</Token><Token>)</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>22</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>11</Token></paragraph>
+
+ <paragraph><Token>Statistical</Token> <Token>summarization</Token><Token>:</Token> <Token>example</Token>
+<Token>•</Token> <Token>Salton</Token><Token>,</Token> <Token>et</Token> <Token>al</Token><Token>.</Token> <Token>used</Token> <Token>vector-space</Token> <Token>similarity</Token><Token>1</Token>
+<Token>–</Token> <Token>Discover</Token> <Token>abstract</Token> <Token>structure</Token> <Token>of</Token> <Token>text</Token>
+<Token>–</Token> <Token>Generate</Token> <Token>text</Token> <Token>summaries</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Idea</Token><Token>:</Token> <Token>most</Token> <Token>texts</Token> <Token>composed</Token> <Token>of</Token> <Token>multiple</Token> <Token>functional</Token>
+<Token>(</Token><Token>or</Token> <Token>semantic</Token><Token>)</Token> <Token>units</Token>
+<Token>•</Token> <Token>Paragraphs</Token> <Token>within</Token> <Token>a</Token> <Token>unit</Token> <Token>more</Token> <Token>highly</Token> <Token>linked</Token> <Token>than</Token>
+<Token>paragraphs</Token> <Token>in</Token> <Token>different</Token> <Token>units</Token>
+<Token>•</Token> <Token>Used</Token> <Token>similarity</Token> <Token>to</Token> <Token>link</Token> <Token>paragraphs</Token>
+<Token>–</Token> <Token>Vocabulary</Token> <Token>overlap</Token>
+<Token>1</Token><Token>Salton</Token></paragraph>
+
+<paragraph><Token>et</Token> <Token>al</Token><Token>.</Token> <Token>Automatic</Token> <Token>text</Token> <Token>structuring</Token> <Token>and</Token> <Token>summarization</Token><Token>.</Token> <Token>Information</Token> <Token>Processing</Token> <Token>&amp;</Token>
+<Token>Management</Token> <Token>33</Token><Token>(</Token><Token>2</Token><Token>)</Token><Token>,</Token> <Token>pp</Token><Token>193</Token><Token>-</Token><Token>207</Token><Token>,</Token> <Token>1997</Token><Token>.</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>23</Token></paragraph>
+
+<paragraph><Token>Statistical</Token> <Token>summarization</Token><Token>:</Token> <Token>example</Token>
+<Token>Paragraph</Token>
+<Token>relationship</Token>
+<Token>map</Token></paragraph>
+
+<paragraph><Token>Figure</Token> <Token>from</Token><Token>:</Token> <Token>Salton</Token> <Token>et</Token> <Token>al</Token><Token>.</Token>
+<Token>Automatic</Token> <Token>text</Token> <Token>structuring</Token>
+<Token>and</Token> <Token>summarization</Token><Token>.</Token>
+<Token>Information</Token> <Token>Processing</Token> <Token>&amp;</Token>
+<Token>Management</Token> <Token>33</Token><Token>(</Token><Token>2</Token><Token>)</Token><Token>,</Token>
+<Token>pp</Token><Token>193</Token><Token>-</Token><Token>207</Token><Token>,</Token> <Token>1997</Token><Token>.</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>24</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>12</Token></paragraph>
+
+ <paragraph><Token>Statistical</Token> <Token>summarization</Token><Token>:</Token> <Token>example</Token>
+<Token>•</Token> <Token>Paragraph</Token> <Token>relationship</Token> <Token>map</Token>
+<Token>–</Token> <Token>Use</Token> <Token>threshold</Token> <Token>to</Token> <Token>control</Token> <Token>link</Token> <Token>number</Token>
+<Token>–</Token> <Token>Eliminate</Token> <Token>long-distance</Token> <Token>links</Token>
+<Token>–</Token> <Token>Produce</Token> <Token>small</Token> <Token>number</Token> <Token>highly-connected</Token> <Token>segments</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Number</Token> <Token>of</Token> <Token>links</Token> <Token>may</Token> <Token>indicate</Token> <Token>importance</Token>
+<Token>•</Token> <Token>Extract</Token> <Token>important</Token> <Token>paragraphs</Token> <Token>from</Token> <Token>map</Token>
+<Token>–</Token> <Token>n</Token> <Token>bushiest</Token> <Token>nodes</Token> <Token>(</Token><Token>*</Token><Token>best</Token> <Token>performance</Token><Token>)</Token>
+<Token>–</Token> <Token>Depth-first</Token> <Token>path</Token>
+<Token>•</Token> <Token>Start</Token> <Token>at</Token> <Token>first</Token> <Token>or</Token> <Token>most</Token> <Token>bushy</Token> <Token>node</Token>
+<Token>•</Token> <Token>Select</Token> <Token>next</Token> <Token>most</Token> <Token>similar</Token> <Token>node</Token> <Token>following</Token> <Token>current</Token> <Token>node</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Bushy</Token> <Token>nodes</Token> <Token>from</Token> <Token>each</Token> <Token>segment</Token>
+<Token>–</Token> <Token>May</Token> <Token>need</Token> <Token>to</Token> <Token>add</Token> <Token>transition</Token> <Token>between</Token> <Token>segments</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>25</Token></paragraph>
+
+<paragraph><Token>Knowledge-based</Token> <Token>summarization</Token><Token>:</Token>
+<Token>example</Token>
+<Token>•</Token> <Token>SUMMA</Token> <Token>summarization</Token> <Token>system</Token><Token>1</Token>
+<Token>•</Token> <Token>Analysis</Token>
+<Token>–</Token> <Token>Part</Token> <Token>of</Token> <Token>speech</Token> <Token>tagging</Token><Token>,</Token> <Token>partial</Token> <Token>parsing</Token>
+<Token>–</Token> <Token>Main</Token> <Token>topic</Token> <Token>of</Token> <Token>sentences</Token>
+<Token>–</Token> <Token>Term</Token> <Token>distributions</Token>
+<Token>–</Token> <Token>Hierarchical</Token> <Token>topic</Token> <Token>tree</Token>
+<Token>•</Token> <Token>Desired</Token> <Token>summary</Token> <Token>length</Token> <Token>determines</Token> <Token>level</Token> <Token>of</Token> <Token>detail</Token>
+<Token>1</Token><Token>Moens</Token></paragraph>
+
+<paragraph><Token>et</Token> <Token>al</Token><Token>.</Token> <Token>Generic</Token> <Token>technologies</Token> <Token>for</Token> <Token>single-</Token> <Token>and</Token> <Token>multiple-document</Token> <Token>summarization</Token><Token>.</Token>
+<Token>Information</Token> <Token>Processing</Token> <Token>&amp;</Token> <Token>Management</Token> <Token>41</Token><Token>,</Token> <Token>pp</Token><Token>.</Token> <Token>569</Token><Token>-</Token><Token>586</Token><Token>,</Token> <Token>2005</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>26</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>13</Token></paragraph>
+
+ <paragraph><Token>Knowledge-based</Token> <Token>summarization</Token><Token>:</Token>
+<Token>example</Token>
+<Token>•</Token> <Token>Transformation</Token>
+<Token>–</Token> <Token>Sentence</Token> <Token>condensation</Token>
+<Token>•</Token> <Token>Shortest</Token> <Token>phrase</Token> <Token>that</Token> <Token>spans</Token> <Token>most</Token> <Token>topic</Token> <Token>terms</Token> <Token>in</Token> <Token>a</Token>
+<Token>clause</Token> <Token>[</Token> <Token>]</Token>
+<Token>•</Token> <Token>Delete</Token> <Token>subclauses</Token>
+<Token>•</Token> <Token>Eliminate</Token> <Token>auxiliary</Token> <Token>verbs</Token> <Token>and</Token> <Token>determiners</Token>
+<Token>“</Token><Token>A</Token> <Token>Massachusetts</Token> <Token>[</Token><Token>scientist</Token> <Token>who</Token> <Token>has</Token> <Token>helped</Token> <Token>dispel</Token> <Token>the</Token> <Token>once</Token> <Token>widely</Token> <Token>held</Token>
+<Token>belief</Token> <Token>that</Token> <Token>schizophrenia</Token> <Token>came</Token> <Token>from</Token> <Token>bad</Token> <Token>mothering</Token> <Token>has</Token> <Token>won</Token> <Token>an</Token> <Token>Albert</Token>
+<Token>Lasker</Token> <Token>award</Token><Token>]</Token><Token>”</Token>
+<Token>scientist</Token> <Token>won</Token> <Token>Albert</Token> <Token>Lasker</Token> <Token>award</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Eliminate</Token> <Token>redundant</Token> <Token>content</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>27</Token></paragraph>
+
+<paragraph><Token>Knowledge-based</Token> <Token>summarization</Token><Token>:</Token>
+<Token>example</Token>
+<Token>•</Token> <Token>Generation</Token> <Token>of</Token> <Token>summary</Token>
+<Token>–</Token> <Token>Single</Token> <Token>documents</Token><Token>:</Token>
+<Token>•</Token> <Token>Select</Token> <Token>first</Token> <Token>sentence</Token> <Token>of</Token> <Token>each</Token> <Token>topical</Token> <Token>segment</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Multiple</Token> <Token>documents</Token><Token>:</Token>
+<Token>•</Token> <Token>Cluster</Token> <Token>sentences</Token> <Token>of</Token> <Token>single</Token> <Token>document</Token> <Token>summaries</Token>
+<Token>(</Token><Token>using</Token> <Token>term</Token> <Token>vectors</Token><Token>)</Token>
+<Token>•</Token> <Token>Select</Token> <Token>most</Token> <Token>representative</Token> <Token>sentence</Token> <Token>in</Token> <Token>cluster</Token> <Token>for</Token>
+<Token>the</Token> <Token>summary</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>28</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>14</Token></paragraph>
+
+ <paragraph><Token>How</Token> <Token>do</Token> <Token>you</Token> <Token>know</Token> <Token>if</Token> <Token>a</Token> <Token>summary</Token> <Token>is</Token> <Token>good</Token><Token>?</Token>
+<Token>•</Token> <Token>Evaluation</Token> <Token>types</Token><Token>:</Token>
+<Token>–</Token> <Token>Intrinsic</Token><Token>:</Token> <Token>informativeness</Token><Token>,</Token> <Token>coverage</Token><Token>,</Token> <Token>correctness</Token>
+<Token>–</Token> <Token>Extrinsic</Token><Token>:</Token> <Token>effectiveness</Token> <Token>for</Token> <Token>intended</Token> <Token>purpose</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>Example</Token><Token>:</Token> <Token>Salton</Token> <Token>paper</Token> <Token>(</Token><Token>extracts</Token><Token>)</Token>
+<Token>–</Token> <Token>Manually-extracted</Token> <Token>summaries</Token> <Token>(</Token><Token>50</Token> <Token>documents</Token><Token>)</Token>
+<Token>•</Token> <Token>Two</Token> <Token>manual</Token> <Token>extracts</Token> <Token>per</Token> <Token>document</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Reported</Token> <Token>amount</Token> <Token>of</Token> <Token>overlap</Token> <Token>between</Token> <Token>manual</Token> <Token>and</Token>
+<Token>automatic</Token> <Token>extracts</Token>
+<Token>–</Token> <Token>Average</Token> <Token>overlap</Token> <Token>of</Token> <Token>two</Token> <Token>manual</Token> <Token>extracts</Token> <Token>only</Token> <Token>46</Token><Token>%</Token></paragraph>
+
+<paragraph><Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>29</Token></paragraph>
+
+<paragraph><Token>How</Token> <Token>do</Token> <Token>you</Token> <Token>know</Token> <Token>if</Token> <Token>a</Token> <Token>summary</Token> <Token>is</Token> <Token>good</Token><Token>?</Token>
+<Token>•</Token> <Token>Example</Token><Token>:</Token> <Token>Document</Token> <Token>Understanding</Token> <Token>Conference</Token>
+<Token>(</Token><Token>DUC</Token><Token>)</Token>
+<Token>–</Token> <Token>Manual</Token> <Token>comparison</Token> <Token>of</Token> <Token>system</Token> <Token>results</Token> <Token>to</Token> <Token>manuallycreated</Token> <Token>abstracts</Token>
+<Token>–</Token> <Token>Quality</Token> <Token>of</Token> <Token>summary</Token>
+<Token>•</Token> <Token>Grammaticality</Token>
+<Token>•</Token> <Token>Cohesion</Token> <Token>(</Token><Token>sentences</Token> <Token>fit</Token> <Token>with</Token> <Token>surrounding</Token> <Token>sentences</Token><Token>)</Token>
+<Token>•</Token> <Token>Organization</Token><Token>/</Token><Token>coherence</Token> <Token>(</Token><Token>content</Token> <Token>expressed</Token> <Token>and</Token> <Token>arranged</Token>
+<Token>effectively</Token><Token>)</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Coverage</Token>
+<Token>•</Token> <Token>Compared</Token> <Token>content</Token> <Token>to</Token> <Token>human</Token> <Token>summary</Token></paragraph>
+
+<paragraph><Token>–</Token> <Token>Human</Token> <Token>judges</Token> <Token>found</Token> <Token>evaluation</Token> <Token>difficult</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>30</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>15</Token></paragraph>
+
+ <paragraph><Token>Information</Token> <Token>Extraction</Token>
+<Token>•</Token> <Token>Extract</Token> <Token>pieces</Token> <Token>of</Token> <Token>information</Token> <Token>related</Token> <Token>to</Token> <Token>a</Token>
+<Token>particular</Token> <Token>scenario</Token>
+<Token>•</Token> <Token>Example</Token><Token>1</Token><Token>:</Token> <Token>Scenario</Token> <Token>related</Token> <Token>to</Token> <Token>changes</Token> <Token>in</Token>
+<Token>company</Token> <Token>management</Token>
+<Token>Text</Token> <Token>excerpt</Token>
+<Token>A</Token><Token>.</Token><Token>C</Token><Token>.</Token> <Token>Nielsen</Token> <Token>Co</Token><Token>.</Token> <Token>said</Token> <Token>George</Token> <Token>Garrick</Token><Token>,</Token> <Token>40</Token> <Token>years</Token>
+<Token>old</Token><Token>,</Token> <Token>president</Token> <Token>of</Token> <Token>Information</Token> <Token>Resources</Token> <Token>Inc</Token><Token>.</Token><Token>’</Token><Token>s</Token>
+<Token>London-based</Token> <Token>European</Token> <Token>Info</Token> <Token>Services</Token>
+<Token>operation</Token><Token>,</Token> <Token>will</Token> <Token>become</Token> <Token>president</Token> <Token>of</Token> <Token>Nielsen</Token>
+<Token>Research</Token><Token>,</Token> <Token>a</Token> <Token>unit</Token> <Token>of</Token> <Token>Dun</Token> <Token>&amp;</Token> <Token>Bradstreet</Token> <Token>Corp</Token><Token>.</Token> <Token>He</Token>
+<Token>succeeds</Token> <Token>John</Token> <Token>Costello</Token><Token>,</Token> <Token>who</Token> <Token>resigned</Token> <Token>in</Token> <Token>March</Token><Token>.</Token></paragraph>
+
+<paragraph><Token>Output</Token> <Token>template</Token>
+<Token>&lt;</Token><Token>Succession</Token><Token>_</Token><Token>event</Token><Token>&gt;</Token> <Token>=</Token>
+<Token>PersonIn</Token><Token>:</Token>
+<Token>PersonOut</Token><Token>:</Token>
+<Token>Post</Token><Token>:</Token>
+<Token>Org</Token><Token>:</Token></paragraph>
+
+<paragraph><Token>George</Token> <Token>Garrick</Token>
+<Token>John</Token> <Token>Costello</Token>
+<Token>President</Token>
+<Token>Nielsen</Token> <Token>Research</Token></paragraph>
+
+<paragraph><Token>1</Token><Token>Example</Token></paragraph>
+
+<paragraph><Token>is</Token> <Token>abbreviated</Token> <Token>from</Token> <Token>Turmo</Token> <Token>et</Token> <Token>al</Token><Token>.</Token> <Token>Adaptive</Token> <Token>Information</Token> <Token>Extraction</Token><Token>.</Token> <Token>ACM</Token>
+<Token>Computing</Token> <Token>Surveys</Token> <Token>38</Token><Token>(</Token><Token>2</Token><Token>)</Token><Token>,</Token> <Token>July</Token> <Token>2006</Token><Token>.</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>31</Token></paragraph>
+
+<paragraph><Token>Information</Token> <Token>Extraction</Token>
+<Token>•</Token> <Token>Task</Token> <Token>often</Token> <Token>represented</Token> <Token>as</Token> <Token>a</Token> <Token>template</Token> <Token>to</Token>
+<Token>be</Token> <Token>filled</Token>
+<Token>•</Token> <Token>Structured</Token> <Token>summarization</Token><Token>?</Token>
+<Token>•</Token> <Token>Typically</Token> <Token>do</Token> <Token>only</Token> <Token>partial</Token> <Token>parsing</Token> <Token>of</Token> <Token>text</Token>
+<Token>•</Token> <Token>Extraction</Token> <Token>phase</Token> <Token>is</Token> <Token>domain-specific</Token>
+<Token>–</Token> <Token>Often</Token> <Token>use</Token> <Token>pattern</Token> <Token>matching</Token> <Token>to</Token> <Token>extract</Token>
+<Token>elements</Token></paragraph>
+
+<paragraph><Token>•</Token> <Token>May</Token> <Token>use</Token> <Token>machine</Token> <Token>learning</Token> <Token>techniques</Token> <Token>to</Token>
+<Token>learn</Token> <Token>extraction</Token> <Token>rules</Token>
+<Token>CS</Token> <Token>510</Token> <Token>Winter</Token> <Token>2007</Token></paragraph>
+
+<paragraph><Token>32</Token></paragraph>
+
+<paragraph><Token>(</Token><Token>c</Token><Token>)</Token> <Token>2007</Token> <Token>Susan</Token> <Token>Price</Token> <Token>and</Token> <Token>David</Token> <Token>Maier</Token></paragraph>
+
+<paragraph><Token>16</Token></paragraph>
+
+ 
